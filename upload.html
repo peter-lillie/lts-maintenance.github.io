@@ -23,28 +23,21 @@
     <article id="site-description">
         <p id="site-description-paragraph">Site Description will go here!</p>
     </article>
-    <form class="photo-upload">
-        <label for="name">Photo:</label>
-        <input type="file" accept=".png, .jpg, .jpeg, .heic" id="photo-upload" value="Choose Photo" multiple>
-        <input type="submit" id="submit-photo" value="Submit Photo">
-    </form>
+     <!-- HTML5 Input Form Elements -->
+    <input id="fileupload" type="file" name="fileupload" /> 
+    <button id="upload-button" onclick="uploadFile()"> Upload </button>
 
-    <p id="working">maybe</p>
-
-    <script type="text/javascript">
-        let input = document.querySelector('input');
-        let image = document.querySelector('#photo-upload');
-
-        input.addEventListener('submit', printTHIS);
-
-        function printTHIS()
-        {
-            let pp = document.querySelector('#working')
-            pp.textContent = 'Hello world!';
-        }
-
-
-
+    <!-- Ajax JavaScript File Upload Logic -->
+    <script>
+    async function uploadFile() {
+    let formData = new FormData(); 
+    formData.append("file", fileupload.files[0]);
+    await fetch('scripts/upload.php', {
+        method: "POST", 
+        body: formData
+    }); 
+    alert('The file has been uploaded successfully.');
+    }
     </script>
 </body>
 </html>
