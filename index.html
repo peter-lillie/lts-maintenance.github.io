@@ -27,7 +27,7 @@
     <script type="text/javascript">
         var map = L.map('map').setView([42.525482, -71.764183], 13);
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19,attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
-        fetch("http://localhost:8000/layers/monoosnoc-trail-system.geojson")
+        fetch("layers/monoosnoc-trail-system.geojson")
             .then(function(response) {
                 return response.json();})
             .then(function(data) {
