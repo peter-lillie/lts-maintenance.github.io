@@ -27,9 +27,11 @@
     <script type="text/javascript">
         var map = L.map('map').setView([42.525482, -71.764183], 13);
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19,attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
-        fetch("layers/monoosnoc-trail-system.geojson")
+        let url = "https://raw.githubusercontent.com/peter-lillie/lts-maintenance.github.io/main/layers/monoosnoc-trail-system.geojson"
+        fetch(url)
             .then(function(response) {
-                return response.json();})
+                return response.json();
+            })
             .then(function(data) {
                 var layer = L.geoJSON(data, {
                     onEachFeature: function (f, l) {
