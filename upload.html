@@ -23,12 +23,12 @@
     <article id="site-description">
         <p id="site-description-paragraph">Site Description will go here!</p>
     </article>
-     <!-- HTML5 Input Form Elements -->
-    <input id="fileupload" type="file" name="fileupload" /> 
-    <button id="upload-button" onclick="uploadFile()"> Upload </button>
-
-    <!-- Ajax JavaScript File Upload Logic -->
-    <script>
+        <form action="scripts/upload.php" method="post" enctype="multipart/form-data">
+            <label for="file">Choose an image: </label>
+            <input type="file" name="file">
+            <input type="submit" name="submit" value=" Upload ">
+        </form>
+    <!-- <script>
     async function uploadFile() {
     let formData = new FormData(); 
     formData.append("file", fileupload.files[0]);
@@ -38,6 +38,6 @@
     }); 
     alert('The file has been uploaded successfully.');
     }
-    </script>
+    </script> -->
 </body>
 </html>
